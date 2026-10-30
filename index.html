@@ -6,7 +6,7 @@
 <title>Mundo da Olívia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box}
   html,body{height:100%}
@@ -23,136 +23,93 @@
     overflow:hidden;
   }
 
-  /* ---------- fundo abstrato colorido, com vida ---------- */
+  /* ---------- fundo abstrato ---------- */
   .bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-
-  .orb{
-    position:absolute;border-radius:50%;
-    filter:blur(60px);
-    mix-blend-mode:multiply;
-    will-change:transform;
-  }
-  /* rosa pêssego */
-  .o1{
-    width:480px;height:480px;top:-160px;left:-140px;
+  .orb{position:absolute;border-radius:50%;filter:blur(60px);mix-blend-mode:multiply;will-change:transform}
+  .o1{width:480px;height:480px;top:-160px;left:-140px;
     background:radial-gradient(circle at 40% 40%,#ffb8a0,#ff8fa8 60%,transparent 75%);
-    opacity:.55;
-    animation:float1 18s ease-in-out infinite;
-  }
-  /* lavanda */
-  .o2{
-    width:520px;height:520px;bottom:-200px;right:-180px;
+    opacity:.55;animation:float1 18s ease-in-out infinite}
+  .o2{width:520px;height:520px;bottom:-200px;right:-180px;
     background:radial-gradient(circle at 60% 40%,#b9a8f0,#8f7bdc 55%,transparent 75%);
-    opacity:.5;
-    animation:float2 22s ease-in-out infinite;
-  }
-  /* azul turquesa */
-  .o3{
-    width:360px;height:360px;top:38%;right:-140px;
+    opacity:.5;animation:float2 22s ease-in-out infinite}
+  .o3{width:360px;height:360px;top:38%;right:-140px;
     background:radial-gradient(circle at 50% 50%,#8ee0da,#5cc4c9 55%,transparent 75%);
-    opacity:.45;
-    animation:float3 20s ease-in-out infinite;
-  }
-  /* amarelo suave */
-  .o4{
-    width:300px;height:300px;bottom:10%;left:-120px;
+    opacity:.45;animation:float3 20s ease-in-out infinite}
+  .o4{width:300px;height:300px;bottom:10%;left:-120px;
     background:radial-gradient(circle at 50% 50%,#ffe9a8,#f6cf7a 55%,transparent 75%);
-    opacity:.4;
-    animation:float4 24s ease-in-out infinite;
-  }
-  /* rosa aveludado */
-  .o5{
-    width:260px;height:260px;top:22%;left:30%;
+    opacity:.4;animation:float4 24s ease-in-out infinite}
+  .o5{width:260px;height:260px;top:22%;left:30%;
     background:radial-gradient(circle at 50% 50%,#f8c4d4,#eea3c2 55%,transparent 75%);
-    opacity:.35;
-    animation:float2 26s ease-in-out infinite reverse;
-  }
+    opacity:.35;animation:float2 26s ease-in-out infinite reverse}
+  .veil{position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.55),rgba(255,255,255,0) 65%)}
 
-  /* véu suave que mantém o topo legível */
-  .veil{
-    position:absolute;inset:0;
-    background:radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.55),rgba(255,255,255,0) 65%);
-  }
-
-  @keyframes float1{
-    0%,100%{transform:translate(0,0) scale(1)}
-    50%{transform:translate(40px,30px) scale(1.08)}
-  }
-  @keyframes float2{
-    0%,100%{transform:translate(0,0) scale(1)}
-    50%{transform:translate(-50px,-30px) scale(1.06)}
-  }
-  @keyframes float3{
-    0%,100%{transform:translate(0,0) scale(1)}
-    50%{transform:translate(-30px,40px) scale(1.1)}
-  }
-  @keyframes float4{
-    0%,100%{transform:translate(0,0) scale(1)}
-    50%{transform:translate(35px,-25px) scale(1.05)}
-  }
+  @keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.08)}}
+  @keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,-30px) scale(1.06)}}
+  @keyframes float3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-30px,40px) scale(1.1)}}
+  @keyframes float4{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(35px,-25px) scale(1.05)}}
 
   @media (prefers-reduced-motion:reduce){
     .orb{animation:none}
   }
 
   /* ---------- estrutura ---------- */
-  .shell{
-    position:relative;z-index:1;
-    width:min(100vw,400px);
-    height:min(100dvh,860px);
-    display:flex;flex-direction:column;gap:14px;
-    padding:34px 20px 22px;
-  }
+  .shell{position:relative;z-index:1;width:min(100vw,400px);height:min(100dvh,860px);
+    display:flex;flex-direction:column;gap:14px;padding:34px 20px 22px}
 
   .card{
     background:rgba(255,255,255,.55);
     border:1px solid rgba(255,255,255,.85);
     -webkit-backdrop-filter:blur(20px) saturate(160%);
     backdrop-filter:blur(20px) saturate(160%);
-    box-shadow:
-      0 12px 32px rgba(80,60,90,.09),
-      inset 0 1px 0 rgba(255,255,255,.7);
+    box-shadow:0 12px 32px rgba(80,60,90,.09),inset 0 1px 0 rgba(255,255,255,.7);
   }
 
   /* ---------- cabeçalho ---------- */
   .date{
-    margin:0 0 10px;
+    margin:0 0 12px;
     font-size:11px;font-weight:600;
-    letter-spacing:.18em;text-transform:uppercase;
+    letter-spacing:.14em;text-transform:uppercase;
     color:#7d6f7a;
+    line-height:1.4;
   }
   h1{
-    margin:0 0 4px;
-    font-family:"Fraunces",Georgia,serif;
-    font-weight:500;font-size:38px;line-height:1.04;
-    letter-spacing:-.015em;
-    background:linear-gradient(120deg,#3b2f3d,#5c4b62 45%,#3a5560);
+    margin:0 0 6px;
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:500;font-size:44px;line-height:1;
+    letter-spacing:-.02em;
+    color:#2a2430;
+  }
+  h1 em{
+    font-style:italic;
+    font-weight:500;
+    background:linear-gradient(120deg,#8a4d6b 0%,#5c3d7a 50%,#3d5a6e 100%);
     -webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;color:#3b2f3d;
+    -webkit-text-fill-color:transparent;color:#8a4d6b;
   }
 
   /* ---------- progresso ---------- */
   .progress{padding:14px 18px 16px;border-radius:20px;display:flex;flex-direction:column;gap:10px}
   .progress-row{display:flex;justify-content:space-between;font-size:13px;color:#6f6069}
   .track{height:6px;border-radius:99px;background:rgba(60,50,70,.1);overflow:hidden}
-  .fill{
-    height:100%;width:0;border-radius:99px;
+  .fill{height:100%;width:0;border-radius:99px;
     background:linear-gradient(90deg,#ff9fb2 0%,#b59cf5 55%,#6fd0d6 100%);
-    transition:width .35s cubic-bezier(.4,0,.2,1);
+    transition:width .35s cubic-bezier(.4,0,.2,1)}
+  .progress.complete .fill{
+    box-shadow:0 0 14px rgba(180,155,245,.55)
+  }
+  .progress.complete #percent{
+    color:#8a4d6b;font-weight:700;
   }
 
   /* ---------- adicionar ---------- */
   .add{display:flex;align-items:center;gap:8px;padding:6px;border-radius:18px}
-  .add input{
-    flex:1;min-width:0;height:44px;padding:0 12px;
-    border:0;background:transparent;outline:none;
-    font-size:16px;color:#2e2b28;
-  }
+  .add input{flex:1;min-width:0;height:44px;padding:0 12px;border:0;background:transparent;
+    outline:none;font-size:16px;color:#2e2b28}
   .add input::placeholder{color:#a293a5}
   .add button{
     height:44px;padding:0 18px;border:0;border-radius:14px;
-    background:linear-gradient(135deg,#4b3a58,#2f4a55);
-    color:#fdf8ff;
+    background:linear-gradient(135deg,#4b3a58,#2f4a55);color:#fdf8ff;
     font-size:14px;font-weight:600;cursor:pointer;
     transition:filter .2s,transform .15s,box-shadow .2s;
     box-shadow:0 6px 16px rgba(80,60,90,.25);
@@ -165,11 +122,9 @@
   .tab{
     height:36px;padding:0 15px;border-radius:99px;
     font-size:13px;font-weight:600;cursor:pointer;
-    color:#5f5560;
-    background:rgba(255,255,255,.4);
+    color:#5f5560;background:rgba(255,255,255,.4);
     border:1px solid rgba(255,255,255,.85);
-    -webkit-backdrop-filter:blur(14px);
-    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
     transition:background .2s,color .2s,border-color .2s,box-shadow .2s;
   }
   .tab:hover{background:rgba(255,255,255,.7)}
@@ -180,12 +135,8 @@
   }
 
   /* ---------- lista ---------- */
-  .list{
-    list-style:none;margin:0;padding:0;
-    flex:1;min-height:0;overflow-y:auto;
-    display:flex;flex-direction:column;gap:8px;
-    scrollbar-width:none;
-  }
+  .list{list-style:none;margin:0;padding:0;flex:1;min-height:0;overflow-y:auto;
+    display:flex;flex-direction:column;gap:8px;scrollbar-width:none}
   .list::-webkit-scrollbar{width:0}
 
   .item{
@@ -200,58 +151,66 @@
   }
   @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-  .check{
-    width:42px;height:42px;flex:none;border:0;background:transparent;
-    border-radius:50%;cursor:pointer;display:grid;place-items:center;
-  }
-  .box{
-    width:22px;height:22px;border-radius:50%;
-    border:1.5px solid rgba(80,60,90,.4);
-    display:grid;place-items:center;
-    transition:background .2s,border-color .2s,box-shadow .2s;
-  }
+  .check{width:42px;height:42px;flex:none;border:0;background:transparent;
+    border-radius:50%;cursor:pointer;display:grid;place-items:center}
+  .box{width:22px;height:22px;border-radius:50%;
+    border:1.5px solid rgba(80,60,90,.4);display:grid;place-items:center;
+    transition:background .2s,border-color .2s,box-shadow .2s}
   .box svg{opacity:0;transform:scale(.6);transition:opacity .2s,transform .2s}
   .item.done .box{
     background:linear-gradient(135deg,#b59cf5,#6fd0d6);
-    border-color:transparent;
-    box-shadow:0 3px 10px rgba(140,110,190,.35);
+    border-color:transparent;box-shadow:0 3px 10px rgba(140,110,190,.35);
   }
   .item.done .box svg{opacity:1;transform:scale(1)}
 
   .text{
-    flex:1;min-width:0;
+    flex:1;min-width:0;padding:2px 4px;border-radius:4px;
     font-size:15.5px;line-height:1.3;
     overflow-wrap:anywhere;color:#2e2b28;
-    transition:color .2s;
+    transition:color .2s,background .15s;
+    cursor:text;touch-action:manipulation;
   }
+  .text:hover{background:rgba(140,110,190,.07)}
   .item.done .text{
     color:#a99fb0;
     text-decoration:line-through;
     text-decoration-color:rgba(140,120,160,.6);
   }
 
-  .del{
-    width:38px;height:38px;flex:none;border:0;background:transparent;
-    border-radius:50%;cursor:pointer;display:grid;place-items:center;
-    color:rgba(80,60,90,.6);opacity:.6;
-    transition:opacity .2s,background .2s;
+  .edit-input{
+    flex:1;min-width:0;
+    height:34px;padding:0 10px;margin:0 4px;
+    font-size:15.5px;font-family:inherit;color:#2e2b28;
+    background:rgba(255,255,255,.8);
+    border:1px solid rgba(140,110,190,.5);
+    border-radius:8px;outline:none;
   }
+  .edit-input:focus{
+    border-color:rgba(140,110,190,.8);
+    box-shadow:0 0 0 3px rgba(140,110,190,.15);
+  }
+
+  .del{width:38px;height:38px;flex:none;border:0;background:transparent;
+    border-radius:50%;cursor:pointer;display:grid;place-items:center;
+    color:rgba(80,60,90,.6);opacity:.6;transition:opacity .2s,background .2s}
   .del:hover{opacity:1;background:rgba(80,60,90,.08)}
 
+  /* ---------- estado vazio ---------- */
   .empty{
-    padding:38px 14px;text-align:center;
-    font-size:14px;line-height:1.5;color:#8c8290;
+    padding:30px 14px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:16px;
   }
+  .empty svg{opacity:.75;filter:drop-shadow(0 6px 14px rgba(140,110,190,.25))}
+  .empty p{margin:0;font-size:14px;line-height:1.55;color:#8c8290;max-width:260px}
+  .empty .hint{font-size:12px;color:#a89aac;margin-top:-6px}
 
   /* ---------- limpar ---------- */
   .clear{
     height:46px;border-radius:16px;
     font-size:13.5px;font-weight:600;cursor:pointer;
-    color:#5f5560;
-    background:rgba(255,255,255,.45);
+    color:#5f5560;background:rgba(255,255,255,.45);
     border:1px solid rgba(255,255,255,.85);
-    -webkit-backdrop-filter:blur(16px);
-    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
     transition:background .2s,color .2s;
   }
   .clear:hover{background:rgba(255,255,255,.75);color:#3b2f3d}
@@ -273,10 +232,10 @@
 <main class="shell">
   <header>
     <p class="date" id="date"></p>
-    <h1>Mundo da<br>Olívia</h1>
+    <h1>Mundo da<br><em>Olívia</em></h1>
   </header>
 
-  <section class="card progress" aria-label="Progresso">
+  <section class="card progress" id="progress" aria-label="Progresso">
     <div class="progress-row">
       <span id="counter"></span>
       <span id="percent"></span>
@@ -291,33 +250,28 @@
   </form>
 
   <nav class="tabs" id="tabs" aria-label="Filtro de tarefas">
-    <button type="button" class="tab" data-filter="all">Todas</button>
+    <button type="button" class="tab active" data-filter="all">Todas</button>
     <button type="button" class="tab" data-filter="open">Por fazer</button>
     <button type="button" class="tab" data-filter="done">Feitas</button>
   </nav>
 
   <ul class="list" id="list"></ul>
 
-  <button type="button" class="clear" id="clear">Limpar concluídas</button>
+  <button type="button" class="clear" id="clear" disabled>Limpar concluídas</button>
 </main>
 
 <script>
 (function () {
   'use strict';
 
-  var STORAGE_KEY = 'mundo-da-olivia-v1';
+  var STORAGE_KEY = 'mundo-da-olivia-v2';
 
   var state = {
     filter: 'all',
-    next: 4,
-    todos: [
-      { id: 1, text: 'Marcar consulta', done: false },
-      { id: 2, text: 'Responder aos emails do dia', done: false },
-      { id: 3, text: 'Toca no círculo para concluir', done: true }
-    ]
+    next: 1,
+    todos: []
   };
 
-  /* --- recuperar estado guardado --- */
   try {
     var raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
@@ -329,7 +283,7 @@
           : saved.todos.reduce(function (m, t) { return Math.max(m, t.id || 0); }, 0) + 1;
       }
     }
-  } catch (e) { /* sem persistência disponível */ }
+  } catch (e) { /* sem persistência */ }
 
   var listEl    = document.getElementById('list');
   var fillEl    = document.getElementById('fill');
@@ -340,6 +294,7 @@
   var clearBtn  = document.getElementById('clear');
   var formEl    = document.getElementById('addForm');
   var tabsEl    = document.getElementById('tabs');
+  var progressEl= document.getElementById('progress');
 
   var CHECK_SVG = '<svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true">' +
     '<path d="M2.5 7.4l3 3 6-6.4" fill="none" stroke="#fdf8ff" stroke-width="2" ' +
@@ -349,10 +304,28 @@
     '<path d="M4.6 4.6l8.8 8.8M13.4 4.6l-8.8 8.8" fill="none" stroke="currentColor" ' +
     'stroke-width="1.8" stroke-linecap="round"/></svg>';
 
+  var SPARKLE_SVG = '<svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">' +
+    '<defs><linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="100%">' +
+    '<stop offset="0%" stop-color="#ff9fb2"/>' +
+    '<stop offset="50%" stop-color="#b59cf5"/>' +
+    '<stop offset="100%" stop-color="#6fd0d6"/>' +
+    '</linearGradient></defs>' +
+    '<path d="M32 4 C32 22 42 32 60 32 C42 32 32 42 32 60 C32 42 22 32 4 32 C22 32 32 22 32 4 Z" ' +
+    'fill="url(#sparkGrad)" opacity="0.8"/>' +
+    '<circle cx="32" cy="32" r="2.5" fill="#fff" opacity="0.9"/>' +
+    '</svg>';
+
   function save() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ todos: state.todos, next: state.next }));
     } catch (e) { /* ignora */ }
+  }
+
+  function greeting() {
+    var h = new Date().getHours();
+    if (h < 12) return 'Bom dia';
+    if (h < 19) return 'Boa tarde';
+    return 'Boa noite';
   }
 
   function todayLabel() {
@@ -375,6 +348,7 @@
     var span = document.createElement('span');
     span.className = 'text';
     span.textContent = t.text;
+    span.title = 'Duplo-clique para editar';
 
     var del = document.createElement('button');
     del.type = 'button';
@@ -394,11 +368,13 @@
     var done = state.todos.filter(function (t) { return t.done; }).length;
     var open = total - done;
     var pct = total ? Math.round((done / total) * 100) : 0;
+    var complete = total > 0 && done === total;
 
-    dateEl.textContent = todayLabel();
+    dateEl.textContent = greeting() + ' · ' + todayLabel();
     counterEl.textContent = open === 1 ? '1 por fazer' : open + ' por fazer';
-    percentEl.textContent = pct + '% concluído';
+    percentEl.textContent = complete ? 'Tudo feito ✨' : pct + '% concluído';
     fillEl.style.width = pct + '%';
+    progressEl.classList.toggle('complete', complete);
 
     var shown = state.todos.filter(function (t) {
       if (state.filter === 'open') return !t.done;
@@ -411,9 +387,18 @@
     if (!shown.length) {
       var li = document.createElement('li');
       li.className = 'empty';
-      li.textContent = total === 0
-        ? 'O mundo está vazio. Escreve a primeira tarefa acima.'
-        : 'Nada por aqui. Muda o filtro ou adiciona uma tarefa.';
+      li.innerHTML = SPARKLE_SVG;
+      var p = document.createElement('p');
+      p.textContent = total === 0
+        ? 'O mundo da Olívia está à tua espera. Escreve a primeira tarefa acima.'
+        : 'Nada por aqui. Muda o filtro ou adiciona uma nova tarefa.';
+      li.appendChild(p);
+      if (total === 0) {
+        var hint = document.createElement('p');
+        hint.className = 'hint';
+        hint.textContent = 'Duplo-clique numa tarefa para a editar.';
+        li.appendChild(hint);
+      }
       listEl.appendChild(li);
     } else {
       shown.forEach(function (t) { listEl.appendChild(buildItem(t)); });
@@ -456,6 +441,50 @@
 
     save();
     render();
+  });
+
+  /* --- edição em duplo-clique --- */
+  listEl.addEventListener('dblclick', function (e) {
+    if (!e.target.classList.contains('text')) return;
+    var textEl = e.target;
+    var li = textEl.closest('.item');
+    var id = Number(li.dataset.id);
+    var task = state.todos.find(function (x) { return x.id === id; });
+    if (!task) return;
+
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'edit-input';
+    input.value = task.text;
+    input.maxLength = 180;
+    textEl.replaceWith(input);
+    input.focus();
+    input.select();
+
+    var committed = false;
+    function commit() {
+      if (committed) return;
+      committed = true;
+      var newText = input.value.trim();
+      if (newText && newText !== task.text) {
+        state.todos = state.todos.map(function (x) {
+          return x.id === id ? { id: x.id, text: newText, done: x.done } : x;
+        });
+        save();
+        task = state.todos.find(function (x) { return x.id === id; }) || task;
+      }
+      var span = document.createElement('span');
+      span.className = 'text';
+      span.textContent = task.text;
+      span.title = 'Duplo-clique para editar';
+      if (input.parentNode) input.replaceWith(span);
+    }
+
+    input.addEventListener('blur', commit);
+    input.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter') { ev.preventDefault(); input.blur(); }
+      if (ev.key === 'Escape') { ev.preventDefault(); input.value = task.text; input.blur(); }
+    });
   });
 
   /* --- filtros --- */
